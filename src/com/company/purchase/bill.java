@@ -11,6 +11,11 @@ public class bill {
         String item = sc.next();
 
         while(item == "Y" || item == "y"){
+            System.out.println("Enter item Number");
+            long itemNumber = sc.nextLong();
+            System.out.println("How much of this you want : ");
+            int quantity = sc.nextInt();
+
 
         }
         return 1;
