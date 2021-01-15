@@ -11,31 +11,29 @@ public class adminOptions {
     ArrayList<Product> storage = new ArrayList<>();
 
     Scanner sc = new Scanner(System.in);
-    adminOptions(){
+    public adminOptions(){
         System.out.println("WELCOME TO ADMIN PRIVILEGE ROOM , WHAT DO YOU WANNA DO");
-        System.out.println("1. ADD ITEMS");
-        System.out.println("2. CHECK ITEMS");
 
-
-
-        int optionChosen = sc.nextInt();
-        addItemToStorage();
-        addItemToStorage();
-        addItemToStorage();
-        addItemToStorage();
-        addItemToStorage();addItemToStorage();
-        printStorageDetails();
+//        addItemToStorage();
+//        addItemToStorage();
+//        addItemToStorage();
+//        addItemToStorage();
+//        addItemToStorage();addItemToStorage();
+//        printStorageDetails();
         while(true){
-               switch (optionChosen){
-                   case 1: addItemToStorage();
+                System.out.println("1. ADD ITEMS");
+                System.out.println("2. CHECK ITEMS");
+                int optionChosen = sc.nextInt();
+                switch (optionChosen){
+                    case 1: addItemToStorage();
                             break;
 
-                   case 2: printStorageDetails();
+                    case 2: printStorageDetails();
                             break;
 
-                   default:
-                       //Main m = new Main();
-                       break;
+                    default:
+                            Main m = new Main();
+                            break;
 
                }
         }
@@ -58,14 +56,8 @@ public class adminOptions {
     }
 
     private void printStorageDetails() {
-        storage.get(0).printProduct();
-        storage.get(1).printProduct();
-        storage.get(2).printProduct();
-        storage.get(3).printProduct();
-        storage.get(4).printProduct();
-        storage.get(5).printProduct();
-    }
-    public static void main(String[] args){
-        new adminOptions();
+        for(int i = 0 ; i < storage.size(); i++ ){
+            storage.get(i).printProduct();
+        }
     }
 }
