@@ -5,33 +5,34 @@ import java.util.Scanner;
 
 public class bill {
 
+    public ArrayList<purchase> cart = new ArrayList<>();
     //In this class we will do the billing part
     //The items purchased will be added to a list and then the bill for those items is generated
-    public int bill(){
+    public void bill(){
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the item number followed by Quantity to add to bucket");
-        System.out.println("Press Y to add item");
-        String item = "y";
-        ArrayList<purchase> list = new ArrayList<>();
-        int sno=1;
-        while(item == "Y" || item == "y"){
-            System.out.println("Enter item Number");
-            long itemNumber = sc.nextLong();
-
-            System.out.println("How much of this you want : ");
-            int quantity = sc.nextInt();
-
-            list.add(new purchase(sno,itemNumber,quantity));
-            //Add a print statement that will tell what item is purchased and how much and total price
-
-            System.out.println("Do you wanna add more item : (press y for yes and any key for no");
-
+        System.out.println("Continue adding items to your cart");
+        int option;
+        int serialNumber=0;
+        while(true){
+            System.out.println("Press 1 to add item to your cart");
+            option = sc.nextInt();
+            if(option == 1){
+                serialNumber++;
+                System.out.println("Enter the item number of product");
+                long itemNumber = sc.nextLong();
+                System.out.println("Enter the quantity");
+                int qty = sc.nextInt();
+                purchase item = new purchase(serialNumber, itemNumber, qty);
+                cart.add(item);
+            } else{
+                break;
+            }
         }
+        generateBill currentBill = new generateBill(cart);
 
 
 
-        return 1;
-
+        return;
     }
 }

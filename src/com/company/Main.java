@@ -26,7 +26,8 @@ public class Main {
                 }
 
                 case 2: {
-
+                    System.out.println("Buying option is available");
+                    new bill();
                 }
 
                 default:

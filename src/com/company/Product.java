@@ -16,4 +16,36 @@ public class Product {
     public void printProduct(){
         System.out.println(this.itemNumber+ "  "+this.productName + "  " + this.productPrice + "  " + this.productQuantity);
     }
+
+    public double getProductPrice() {
+        return productPrice;
+    }
+
+    public int getProductQuantity() {
+        return productQuantity;
+    }
+
+    public long getItemNumber() {
+        return itemNumber;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setItemNumber(long itemNumber) {
+        this.itemNumber = itemNumber;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public void setProductPrice(double productPrice) {
+        this.productPrice = productPrice;
+    }
+
+    public void setProductQuantity(int productQuantity) {
+        this.productQuantity = productQuantity;
+    }
 }

@@ -10,4 +10,12 @@ public class OutputBillStructure {
     int quantity;
     double totalPrice;
 
+    OutputBillStructure(int serialNumber, long itemNumber, String itemName, double itemPrice, int quantity, double totalPrice){
+        this.serialNumber = serialNumber;
+        this.itemNumber = itemNumber;
+        this.itemName = itemName;
+        this.itemPrice = itemPrice;
+        this.quantity = quantity;
+        this.totalPrice = totalPrice;
+    }
 }

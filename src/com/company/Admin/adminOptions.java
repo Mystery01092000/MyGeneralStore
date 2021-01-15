@@ -8,23 +8,19 @@ import java.util.Collection;
 import java.util.Scanner;
 
 public class adminOptions {
-    ArrayList<Product> storage = new ArrayList<>();
+    public static ArrayList<Product> storage = new ArrayList<>();
 
     Scanner sc = new Scanner(System.in);
     public adminOptions(){
         System.out.println("WELCOME TO ADMIN PRIVILEGE ROOM , WHAT DO YOU WANNA DO");
 
-//        addItemToStorage();
-//        addItemToStorage();
-//        addItemToStorage();
-//        addItemToStorage();
-//        addItemToStorage();addItemToStorage();
-//        printStorageDetails();
+
         while(true){
                 System.out.println("1. ADD ITEMS");
                 System.out.println("2. CHECK ITEMS");
                 int optionChosen = sc.nextInt();
                 switch (optionChosen){
+
                     case 1: addItemToStorage();
                             break;
 
@@ -32,9 +28,7 @@ public class adminOptions {
                             break;
 
                     default:
-                            Main m = new Main();
-                            break;
-
+                            return;
                }
         }
     }
@@ -59,5 +53,9 @@ public class adminOptions {
         for(int i = 0 ; i < storage.size(); i++ ){
             storage.get(i).printProduct();
         }
+    }
+
+    public ArrayList<Product> getStorage(){
+        return storage;
     }
 }
