@@ -10,29 +10,36 @@ import java.util.Scanner;
 public class adminOptions {
     public static ArrayList<Product> storage = new ArrayList<>();
 
+    //temporary constructor to intialize store with some products
+    public void initializeStorage(){
+        storage.add(new Product(1,"Soap",2332,1000));
+        storage.add(new Product(2,"Shampoo",1092,1000));
+        storage.add(new Product(3,"Biscuit",4221,1000));
+        storage.add(new Product(4,"Almond",234123,1000));
+        storage.add(new Product(5,"Bread",574,1000));
+    }
     Scanner sc = new Scanner(System.in);
-    public adminOptions(){
+    public void adminEntry(){
         System.out.println("WELCOME TO ADMIN PRIVILEGE ROOM , WHAT DO YOU WANNA DO");
 
 
         while(true){
-                System.out.println("1. ADD ITEMS");
-                System.out.println("2. CHECK ITEMS");
-                int optionChosen = sc.nextInt();
-                switch (optionChosen){
+            System.out.println("1. ADD ITEMS");
+            System.out.println("2. CHECK ITEMS");
+            int optionChosen = sc.nextInt();
+            switch (optionChosen){
 
-                    case 1: addItemToStorage();
-                            break;
+                case 1: addItemToStorage();
+                    break;
 
-                    case 2: printStorageDetails();
-                            break;
+                case 2: printStorageDetails();
+                    break;
 
-                    default:
-                            return;
-               }
+                default:
+                    return;
+            }
         }
     }
-
     private void addItemToStorage() {
         System.out.println("Add items to the storage");
         System.out.println("Enter item number");
@@ -53,6 +60,7 @@ public class adminOptions {
         for(int i = 0 ; i < storage.size(); i++ ){
             storage.get(i).printProduct();
         }
+        return;
     }
 
     public ArrayList<Product> getStorage(){

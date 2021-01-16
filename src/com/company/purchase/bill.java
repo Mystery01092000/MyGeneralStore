@@ -31,8 +31,12 @@ public class bill {
         }
         generateBill currentBill = new generateBill(cart);
 
-
-
+        currentBill.printBill();
         return;
+    }
+    public static void main(String[] args)
+    {
+        bill b =  new bill();
+        b.bill();
     }
 }
