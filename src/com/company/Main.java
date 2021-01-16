@@ -23,17 +23,25 @@ public class Main {
                 case 1: {
                     System.out.println("MOVING TO THE STORAGE SERVICE");
                     adminOptions a = new adminOptions();
+                    a.adminEntry();
+                    continue;
                 }
 
                 case 2: {
                     System.out.println("Buying option is available");
                     new bill();
+                    continue;
                 }
 
                 default:
                     System.out.println("Quitting the services");
                     break;
             }
+            if(option != 1 || option != 2){
+                break;
+            }
         }
+
+        System.out.println("Process Ended");
     }
 }
