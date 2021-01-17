@@ -34,9 +34,9 @@ public class bill {
         currentBill.printBill();
         return;
     }
-    public static void main(String[] args)
-    {
-        bill b =  new bill();
-        b.bill();
-    }
+//    public static void main(String[] args)
+//    {
+//        bill b =  new bill();
+//        b.bill();
+//    }
 }
