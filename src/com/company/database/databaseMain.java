@@ -10,9 +10,18 @@ public class databaseMain {
     private final String url = "jdbc:sqlite:/Users/pranavtomar/IdeaProjects/MyGeneralStore/storedata.db";
     public ArrayList<Product> storage = new ArrayList<>();
 
-    public int insertItem(){
+    public int insertItem(Product item) throws SQLException {
+        Connection conn = DriverManager.getConnection(url);
+        Statement statement = conn.createStatement();
 
-
+        String insertSQL = "INSERT INTO storage VALUES (" +
+                item.getItemNumber() +"," +
+                item.getProductName()+"," +
+                item.getProductPrice()+","+
+                item.getProductQuantity() +
+                ")";
+        System.out.println(insertSQL);
+        statement.executeUpdate(insertSQL);
 
         return 0;
     }

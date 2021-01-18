@@ -2,14 +2,16 @@ package com.company.Admin;
 
 import com.company.Main;
 import com.company.Product;
+import com.company.database.databaseMain;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Scanner;
 
 public class adminOptions {
     public static ArrayList<Product> storage = new ArrayList<>();
-
+    databaseMain db = new databaseMain();
     //temporary constructor to intialize store with some products
     public void initializeStorage(){
         storage.add(new Product(1,"Soap",2332,1000));
@@ -18,8 +20,9 @@ public class adminOptions {
         storage.add(new Product(4,"Almond",234123,1000));
         storage.add(new Product(5,"Bread",574,1000));
     }
+
     Scanner sc = new Scanner(System.in);
-    public void adminEntry(){
+    public void adminEntry() throws SQLException {
         System.out.println("WELCOME TO ADMIN PRIVILEGE ROOM , WHAT DO YOU WANNA DO");
 
 
@@ -40,7 +43,7 @@ public class adminOptions {
             }
         }
     }
-    private void addItemToStorage() {
+    private void addItemToStorage() throws SQLException {
         System.out.println("Add items to the storage");
         System.out.println("Enter item number");
         long itemNumber = sc.nextLong();
@@ -53,7 +56,9 @@ public class adminOptions {
         int itemQuantity = sc.nextInt();
 
         Product item = new Product(itemNumber, itemName, itemPrice, itemQuantity);
+        db.insertItem(item);
         storage.add(item);
+
     }
 
     private void printStorageDetails() {

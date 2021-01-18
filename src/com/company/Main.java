@@ -3,12 +3,13 @@ package com.company;
 import com.company.Admin.adminOptions;
 import com.company.purchase.bill;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 	    // write your code here
         Scanner sc = new Scanner(System.in);
         System.out.println("===========================================================================================");
