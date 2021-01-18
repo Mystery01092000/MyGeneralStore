@@ -10,21 +10,21 @@ import java.util.Collection;
 import java.util.Scanner;
 
 public class adminOptions {
-    public static ArrayList<Product> storage = new ArrayList<>();
+
     databaseMain db = new databaseMain();
-    //temporary constructor to intialize store with some products
-    public void initializeStorage(){
-        storage.add(new Product(1,"Soap",2332,1000));
-        storage.add(new Product(2,"Shampoo",1092,1000));
-        storage.add(new Product(3,"Biscuit",4221,1000));
-        storage.add(new Product(4,"Almond",234123,1000));
-        storage.add(new Product(5,"Bread",574,1000));
-    }
+    public static ArrayList<Product> storage = new ArrayList<>();
+    //temporary function to intialize store with some products
+//    public void initializeStorage(){
+//        storage.add(new Product(1,"Soap",2332,1000));
+//        storage.add(new Product(2,"Shampoo",1092,1000));
+//        storage.add(new Product(3,"Biscuit",4221,1000));
+//        storage.add(new Product(4,"Almond",234123,1000));
+//        storage.add(new Product(5,"Bread",574,1000));
+//    }
 
     Scanner sc = new Scanner(System.in);
     public void adminEntry() throws SQLException {
         System.out.println("WELCOME TO ADMIN PRIVILEGE ROOM , WHAT DO YOU WANNA DO");
-
 
         while(true){
             System.out.println("1. ADD ITEMS");
@@ -62,6 +62,7 @@ public class adminOptions {
     }
 
     private void printStorageDetails() {
+        storage = db.getStorage();
         for(int i = 0 ; i < storage.size(); i++ ){
             storage.get(i).printProduct();
         }
