@@ -2,6 +2,7 @@ package com.company.purchase;
 
 import com.company.Admin.adminOptions;
 import com.company.Product;
+import com.company.database.databaseMain;
 
 import java.util.ArrayList;
 
@@ -12,7 +13,8 @@ public class generateBill {
     generateBill(ArrayList<purchase> cart){
         adminOptions store = new adminOptions();
 //        store.initializeStorage();
-        ArrayList<Product> storage = store.getStorage();
+        databaseMain db = new databaseMain();
+        ArrayList<Product> storage = db.getStorage();
 
         System.out.println("Generating Bill");
 

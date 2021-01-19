@@ -60,8 +60,10 @@ public class adminOptions {
         //storage.add(item);
     }
 
-    private void printStorageDetails() {
+    private void printStorageDetails() throws SQLException {
+        db.fetechStorage();
         storage = db.getStorage();
+        System.out.println("\t\t\t\t PRINTING STORAGE DETAILS \t\t\t\t");
         for(int i = 0 ; i < storage.size(); i++ ){
             storage.get(i).printProduct();
         }

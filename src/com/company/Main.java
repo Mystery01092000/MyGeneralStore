@@ -17,11 +17,12 @@ public class Main {
         System.out.println("\t\t WELCOME TO MY GENERAL STORE");
 
         databaseMain db = new databaseMain();
-        db.fetechStorage();
+
         while(true){
             System.out.println("\t\tCHOOSE A SERVICE");
             System.out.println("\t\tPRESS 1 TO ENTER STORE STORAGE");
             System.out.println("\t\tPRESS 2 FOR USER SERVICE");
+            db.fetechStorage();
             int option  = sc.nextInt();
             switch (option){
                 case 1: {

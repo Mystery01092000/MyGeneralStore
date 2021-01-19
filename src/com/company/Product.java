@@ -14,7 +14,7 @@ public class Product {
         this.productQuantity = productQuantity;
     }
     public void printProduct(){
-        System.out.println(this.itemNumber+ "  "+this.productName + "  " + this.productPrice + "  " + this.productQuantity);
+        System.out.printf("%-20.5s %-20.5s %-20.5s %-20.5s%n" ,this.itemNumber,this.productName , this.productPrice ,this.productQuantity);
     }
 
     public double getProductPrice() {
