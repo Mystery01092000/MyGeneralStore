@@ -11,7 +11,7 @@ public class generateBill {
 
     generateBill(ArrayList<purchase> cart){
         adminOptions store = new adminOptions();
-        store.initializeStorage();
+//        store.initializeStorage();
         ArrayList<Product> storage = store.getStorage();
 
         System.out.println("Generating Bill");
@@ -40,6 +40,7 @@ public class generateBill {
     void printBill(){
         for (OutputBillStructure item: outputBill
              ) {
+
             System.out.println(item.serialNumber +"  "+ item.itemNumber + "  "+item.itemName +"  "+ item.itemPrice +"  "+ item.quantity +"  "+ item.totalPrice);
         }
     }

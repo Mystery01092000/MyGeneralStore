@@ -13,17 +13,19 @@ public class databaseMain {
     public int insertItem(Product item) throws SQLException {
         Connection conn = DriverManager.getConnection(url);
         Statement statement = conn.createStatement();
-//
-//        String insertSQL = "INSERT INTO storage VALUES (" +
-//                item.getItemNumber() +"," +
-//                item.getProductName()+"," +
-//                item.getProductPrice()+","+
-//                item.getProductQuantity() +
-//                ")";
-//        System.out.println(insertSQL);
-//        statement.executeUpdate(insertSQL);
-        conn.close();
+
+        String insertSQL = "INSERT INTO storage VALUES (" +
+                item.getItemNumber() +"," +
+                "'"+item.getProductName()+"'"+"," +
+                item.getProductPrice()+","+
+                item.getProductQuantity() +
+                ")";
+
+        System.out.println(insertSQL);
+        statement.executeUpdate(insertSQL);
+
         statement.close();
+        conn.close();
         return 0;
     }
 
@@ -31,20 +33,21 @@ public class databaseMain {
         Connection conn = DriverManager.getConnection(url);
         Statement statement = conn.createStatement();
 
-//        String getData = "SELECT * FROM storage";
-//        ResultSet result = statement.executeQuery(getData);
-//
-//        while(result.next()){
-//            long itemNumber = result.getLong("itemNumber");
-//            String itemName = result.getString("itemName");
-//            double itemPrice = result.getDouble("itemPrice");
-//            int itemQuantity = result.getInt("itemQuantity");
-//
-//            System.out.println(itemNumber + "   " + itemName + "   "+ itemPrice + "   " + itemQuantity);
-//            storage.add(new Product(itemNumber, itemName, itemPrice, itemQuantity));
-//        }
-        conn.close();
+        String getData = "SELECT * FROM storage";
+        ResultSet result = statement.executeQuery(getData);
+        int sno=1;
+        System.out.println("Storage Printing");
+        while(result.next()){
+            long itemNumber = result.getLong("itemNumber");
+            String itemName = result.getString("itemName");
+            double itemPrice = result.getDouble("itemPrice");
+            int itemQuantity = result.getInt("itemQuantity");
+
+            System.out.println(sno+"    " + itemNumber + "   " + itemName + "   "+ itemPrice + "   " + itemQuantity);
+            storage.add(new Product(itemNumber, itemName, itemPrice, itemQuantity));
+        }
         statement.close();
+        conn.close();
     }
 
     public static void main(String[] args){
@@ -89,7 +92,9 @@ public class databaseMain {
             System.out.println("Database section completed");
         }
     }
+
     public ArrayList<Product> getStorage(){
         return storage;
     }
+
 }

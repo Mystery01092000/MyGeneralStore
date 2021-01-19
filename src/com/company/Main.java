@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.Admin.adminOptions;
+import com.company.database.databaseMain;
 import com.company.purchase.bill;
 
 import java.sql.SQLException;
@@ -15,7 +16,8 @@ public class Main {
         System.out.println("===========================================================================================");
         System.out.println("\t\t WELCOME TO MY GENERAL STORE");
 
-
+        databaseMain db = new databaseMain();
+        db.fetechStorage();
         while(true){
             System.out.println("\t\tCHOOSE A SERVICE");
             System.out.println("\t\tPRESS 1 TO ENTER STORE STORAGE");

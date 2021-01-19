@@ -57,8 +57,7 @@ public class adminOptions {
 
         Product item = new Product(itemNumber, itemName, itemPrice, itemQuantity);
         db.insertItem(item);
-        storage.add(item);
-
+        //storage.add(item);
     }
 
     private void printStorageDetails() {
