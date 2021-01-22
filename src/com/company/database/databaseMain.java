@@ -37,7 +37,6 @@ public class databaseMain {
         String getData = "SELECT * FROM storage";
         ResultSet result = statement.executeQuery(getData);
         int sno=1;
-        System.out.println("Storage Printing");
         while(result.next()){
             long itemNumber = result.getLong("itemNumber");
             String itemName = result.getString("itemName");
