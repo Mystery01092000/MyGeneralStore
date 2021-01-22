@@ -13,17 +13,17 @@ public class databaseMain {
     public int insertItem(Product item) throws SQLException {
         Connection conn = DriverManager.getConnection(url);
         Statement statement = conn.createStatement();
-//        databaseMain db = new databaseMain();
-//        db.fetechStorage();
-//        ArrayList<Product> tempStorage = db.getStorage();
-//        Product tempItem = null;
-//        for(Product temp: tempStorage){
-//            if(temp.getItemNumber() == item.getItemNumber()){
-//                tempItem = temp;
-//                temp.setProductQuantity(temp.getProductQuantity() + item.getProductQuantity());
-//            }
-//        }
-//        if(tempItem == null) {
+        databaseMain db = new databaseMain();
+        db.fetechStorage();
+        ArrayList<Product> tempStorage = db.getStorage();
+        Product tempItem = null;
+        for(Product temp: tempStorage){
+            if(temp.getItemNumber() == item.getItemNumber()){
+                tempItem = temp;
+                temp.setProductQuantity(temp.getProductQuantity() + item.getProductQuantity());
+            }
+        }
+        if(tempItem == null) {
             String insertSQL = "INSERT INTO storage VALUES (" +
                     item.getItemNumber() + "," +
                     "'" + item.getProductName() + "'" + "," +
@@ -33,7 +33,7 @@ public class databaseMain {
 
             System.out.println(insertSQL);
             statement.executeUpdate(insertSQL);
-//        }
+        }
         statement.close();
         conn.close();
         return 0;
