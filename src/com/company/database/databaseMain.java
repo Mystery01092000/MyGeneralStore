@@ -49,6 +49,15 @@ public class databaseMain {
         conn.close();
     }
 
+    public void updateStorage(ArrayList<Product> storage) throws SQLException {
+        Connection conn = DriverManager.getConnection(url);
+        Statement statement = conn.createStatement();
+
+        for(Product product: storage){
+            String update = "UPDATE storage SET itemQuantity = " + product.getProductQuantity() + " WHERE itemNumber = " + product.getItemNumber() ;
+            statement.executeUpdate(update);
+        }
+    }
 //    public static void main(String[] args){
 //        try {
 //            //Class.forName("org.sqlite.JDBC");

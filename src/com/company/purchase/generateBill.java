@@ -37,11 +37,17 @@ public class generateBill {
 
             double productPrice = chosenProduct.getProductPrice();
             String productName = chosenProduct.getProductName();
+            if(chosenProduct.getProductQuantity() < itemQuantity){
+                itemQuantity = chosenProduct.getProductQuantity();
+            }
+            chosenProduct.setProductQuantity(chosenProduct.getProductQuantity() - itemQuantity);
             calculatePrice cp = new calculatePrice();
             double totalCost = cp.priceTimesQuantity(productPrice, itemQuantity);
             OutputBillStructure temp = new OutputBillStructure(sno, itemNumber, productName, productPrice, itemQuantity, totalCost);
             outputBill.add(temp);
         }
+
+        db.updateStorage(storage);
 
     }
     void printBill(){
