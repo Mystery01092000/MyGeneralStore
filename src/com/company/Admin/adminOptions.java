@@ -24,11 +24,13 @@ public class adminOptions {
 
     Scanner sc = new Scanner(System.in);
     public void adminEntry() throws SQLException {
-        System.out.println("WELCOME TO ADMIN PRIVILEGE ROOM , WHAT DO YOU WANNA DO");
+        System.out.println("===========================================================================================");
+        System.out.println("\t\t\t\t\t\tWELCOME TO ADMIN PRIVILEGE ROOM , WHAT DO YOU WANNA DO");
+        System.out.println("===========================================================================================");
 
         while(true){
-            System.out.println("1. ADD ITEMS");
-            System.out.println("2. CHECK ITEMS");
+            System.out.println("\t\t\t\t\t\t1. ADD ITEMS");
+            System.out.println("\t\t\t\t\t\t2. CHECK ITEMS");
             int optionChosen = sc.nextInt();
             switch (optionChosen){
 
@@ -44,6 +46,7 @@ public class adminOptions {
         }
     }
     private void addItemToStorage() throws SQLException {
+        System.out.println("===========================================================================================");
         System.out.println("Add items to the storage");
         System.out.println("Enter item number");
         long itemNumber = sc.nextLong();
@@ -57,13 +60,16 @@ public class adminOptions {
 
         Product item = new Product(itemNumber, itemName, itemPrice, itemQuantity);
         db.insertItem(item);
+        System.out.println("===========================================================================================");
         //storage.add(item);
     }
 
     private void printStorageDetails() throws SQLException {
         db.fetechStorage();
         storage = db.getStorage();
+        System.out.println("===========================================================================================");
         System.out.println("\t\t\t\t PRINTING STORAGE DETAILS \t\t\t\t");
+        System.out.println("===========================================================================================");
         for(int i = 0 ; i < storage.size(); i++ ){
             storage.get(i).printProduct();
         }

@@ -14,33 +14,34 @@ public class Main {
 	    // write your code here
         Scanner sc = new Scanner(System.in);
         System.out.println("===========================================================================================");
-        System.out.println("\t\t WELCOME TO MY GENERAL STORE");
+        System.out.println("\t\t\t\t\t\t WELCOME TO MY GENERAL STORE");
+        System.out.println("===========================================================================================");
 
         databaseMain db = new databaseMain();
 
         while(true){
-            System.out.println("\t\tCHOOSE A SERVICE");
-            System.out.println("\t\tPRESS 1 TO ENTER STORE STORAGE");
-            System.out.println("\t\tPRESS 2 FOR USER SERVICE");
+            System.out.println("\t\t\t\t\t\t CHOOSE A SERVICE");
+            System.out.println("\t\t\t\t\t\t PRESS 1 TO ENTER STORE STORAGE");
+            System.out.println("\t\t\t\t\t\t PRESS 2 FOR USER SERVICE");
             db.fetechStorage();
             int option  = sc.nextInt();
             switch (option){
                 case 1: {
-                    System.out.println("\t\tMOVING TO THE STORAGE SERVICE");
+                    System.out.println("\t\t\t\t\t\tMOVING TO THE STORAGE SERVICE");
                     adminOptions a = new adminOptions();
                     a.adminEntry();
                     break;
                 }
 
                 case 2: {
-                    System.out.println("\t\tBuying option is available");
+                    System.out.println("\t\t\t\t\t\tBuying option is available");
                     bill b = new bill();
                     b.bill();
                     break;
                 }
 
                 default:
-                    System.out.println("Quitting the services");
+                    System.out.println("\t\t\t\t\t\tQuitting the services");
                     break;
             }
             if(option != 1 && option != 2){
@@ -48,6 +49,6 @@ public class Main {
             }
         }
 
-        System.out.println("Process Ended");
+        System.out.println("\t\t\t\t\t\tProcess Ended");
     }
 }
