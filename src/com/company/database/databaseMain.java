@@ -20,8 +20,13 @@ public class databaseMain {
         for(Product temp: tempStorage){
             if(temp.getItemNumber() == item.getItemNumber()){
                 tempItem = temp;
-                temp.setProductQuantity(temp.getProductQuantity() + item.getProductQuantity());
+                tempItem.setProductQuantity(temp.getProductQuantity() + item.getProductQuantity());
+                String insertSQL = "UPDATE storage SET itemQuantity = " + tempItem.getProductQuantity() + " WHERE itemNumber = " + tempItem.getItemNumber() ;
+
+                System.out.println(insertSQL);
+                statement.executeUpdate(insertSQL);
             }
+
         }
         if(tempItem == null) {
             String insertSQL = "INSERT INTO storage VALUES (" +
@@ -68,48 +73,49 @@ public class databaseMain {
             statement.executeUpdate(update);
         }
     }
-//    public static void main(String[] args){
-//        try {
-//            //Class.forName("org.sqlite.JDBC");
-//            databaseMain db = new databaseMain();
-//            String username = "root";
-//            String password = "toor";
-//            db.fetechStorage();
-////            Connection conn = DriverManager.getConnection(db.url);
-////
-////            Statement stmt = conn.createStatement();
+    public static void main(String[] args) throws SQLException {
+        try {
+            //Class.forName("org.sqlite.JDBC");
+            databaseMain db = new databaseMain();
+            String username = "root";
+            String password = "toor";
+
+            Connection conn = DriverManager.getConnection(db.url);
+
+            Statement stmt = conn.createStatement();
+
+//            String createTable = "CREATE TABLE IF NOT EXISTS storage  (itemNumber int," +
+//                    "itemName varchar(100)," +
+//                    "itemPrice int," +
+//                    "itemQuantity int)";
+//            String deleteRecords = "DELETE FROM storage";
+//            stmt.executeUpdate(deleteRecords);
+//            stmt.executeUpdate(createTable);
 //
-////            String createTable = "CREATE TABLE IF NOT EXISTS storage  (itemNumber int," +
-////                    "itemName varchar(100)," +
-////                    "itemPrice int," +
-////                    "itemQuantity int)";
-////
-////            stmt.executeUpdate(createTable);
-////
-////            String insertData = "INSERT INTO storage VALUES(1,'Mountain Dew',40,20)";
-////            stmt.executeUpdate(insertData);
-////            insertData = "INSERT INTO storage VALUES(2,'Pepsi',35,30)";
-////            stmt.executeUpdate(insertData);
-////            insertData = "INSERT INTO storage VALUES(3,'AppyFizz',15,124)";
-////            stmt.executeUpdate(insertData);
-////            insertData = "INSERT INTO storage VALUES(4,'Limca',50,55)";
-////            stmt.executeUpdate(insertData);
-////            insertData = "INSERT INTO storage VALUES(5,'Coca Cola',90,80)";
-////            stmt.executeUpdate(insertData);
-////
-////            stmt.close();
-////            conn.close();
-////
-////
-////            }
-//        } catch(SQLException ex) {
-//            System.out.println("Something went wrong  " + ex.getErrorCode());
-//            ex.printStackTrace();
-//        }
-//        finally {
-//            System.out.println("Database section completed");
-//        }
-//    }
+//            String insertData = "INSERT INTO storage VALUES(1,'Mountain Dew',40,20)";
+//            stmt.executeUpdate(insertData);
+//            insertData = "INSERT INTO storage VALUES(2,'Pepsi',35,30)";
+//            stmt.executeUpdate(insertData);
+//            insertData = "INSERT INTO storage VALUES(3,'AppyFizz',15,124)";
+//            stmt.executeUpdate(insertData);
+//            insertData = "INSERT INTO storage VALUES(4,'Limca',50,55)";
+//            stmt.executeUpdate(insertData);
+//            insertData = "INSERT INTO storage VALUES(5,'Coca Cola',90,80)";
+//            stmt.executeUpdate(insertData);
+
+            stmt.close();
+            conn.close();
+
+
+
+        } catch(SQLException ex) {
+            System.out.println("Something went wrong  " + ex.getErrorCode());
+            ex.printStackTrace();
+        }
+        finally {
+            System.out.println("Database section completed");
+        }
+    }
 
     public ArrayList<Product> getStorage(){
         return storage;

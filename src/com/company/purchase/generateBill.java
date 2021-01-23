@@ -50,12 +50,15 @@ public class generateBill {
         db.updateStorage(storage);
 
     }
-    void printBill(){
+
+
+    void printBill() throws SQLException {
         for (OutputBillStructure item: outputBill) {
-            System.out.println(item.serialNumber +"  "+ item.itemNumber + "  "+item.itemName +"  "+ item.itemPrice +"  "+ item.quantity +"  "+ item.totalPrice);
+            System.out.println("\t\t\t\t\t\t"+item.serialNumber +"  "+ item.itemNumber + "  "+item.itemName +"  "+ item.itemPrice +"  "+ item.quantity +"  "+ item.totalPrice);
         }
+
     }
-    void printTotalPayable(){
+    public void printTotalPayable(){
         double sum=0.0;
         for (OutputBillStructure item: outputBill) {
             sum += item.totalPrice;
